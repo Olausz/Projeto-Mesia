@@ -1,7 +1,15 @@
-qtd = int(input("Digite uma quantidade de vezes: "))
-soma = 0
+from flask import Flask, render_template
 
-for n in range(1, qtd):
-    int(input(f"Digite o {n}/{qtd}:"))
-    soma = soma + n
-print(f"O Resultado da soma é {soma}")
+app = Flask(__name__)
+
+@app.route('/')
+def program():
+    return render_template("index.html")
+
+
+@app.route('/contasto')
+def contato():
+    return render_template("contato.html")
+
+if __name__ == "__main__":
+    app.route(debug=True)
